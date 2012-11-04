@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20121104170345) do
     t.string   "health_rating_date"
     t.float    "longitude"
     t.float    "latitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "review"
   end
 

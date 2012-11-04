@@ -143,6 +143,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   jquery-rails
+  nokogiri (= 1.5.5)
   pg
   rails (= 3.2.6)
   sass-rails (~> 3.2.3)

@@ -5,6 +5,7 @@ gem 'rails', '3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+
 group :test, :development do
  gem 'sqlite3'
 end
@@ -13,6 +14,7 @@ group :production do
   # gems specifically for Heroku go here
   gem 'pg'
 end
+
 
 
 # Gems used only for assets and not required
@@ -28,6 +30,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+gem 'nokogiri', '1.5.5'
 
 group :test do
   gem 'cucumber-rails', :require => false
