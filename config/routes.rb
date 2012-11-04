@@ -1,5 +1,9 @@
 Barrating::Application.routes.draw do
   
+  resources :reviews
+
+  resources :venues
+
   resources :searches
   
   match '/home', to: 'searches#new'
