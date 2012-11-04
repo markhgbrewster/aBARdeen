@@ -25,7 +25,12 @@ class SearchesController < ApplicationController
   # GET /searches/new.json
   def new
     @search = Search.new
-
+    #uri = URI('http://ratings.food.gov.uk/OpenDataFiles/FHRS760en-GB.xml')
+    #source = Net::HTTP.get(uri)
+    #document = REXML::Document.new(source)
+    #@arr = document.elements.each("EstablishmentCollection/EstablishmentDetail") { |element| puts element.BusinessName.text }
+    @doc = Nokogiri::Slop(open('http://ratings.food.gov.uk/OpenDataFiles/FHRS760en-GB.xml'))
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @search }
