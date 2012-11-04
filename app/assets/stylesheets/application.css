@@ -75,7 +75,7 @@ background-color: white;
 div.navbar{ position: relative;
 float:left;
 height:50px;
-background-color: #79796B;
+background-color: #B0B0AF;
 font-size: 16px;
 }
 
@@ -98,7 +98,7 @@ display:inline
 }
 
 ul#list-nav li a:hover {
-background:#a2b3a1;
+background:#E0E0D1;
 color:#000;
 }
 
