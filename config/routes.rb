@@ -1,4 +1,10 @@
 Barrating::Application.routes.draw do
+  
+  resources :searches
+  
+  match '/home', to: 'searches#new'
+  
+  root :to => redirect("/home")
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

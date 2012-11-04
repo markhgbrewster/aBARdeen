@@ -1,11 +1,8 @@
-Given /^a user visits the signin page$/ do
+Given /^a user visits the home page$/ do
   visit root_path
 end
 
-When /^he submits invalid signin information$/ do
-  click_button "Log in"
+Then /^he should see a welcome message$/ do
+  page.should have_content('Welcome')
 end
 
-Then /^he should see an error message$/ do
-  page.should have_content('Invalid')
-end
