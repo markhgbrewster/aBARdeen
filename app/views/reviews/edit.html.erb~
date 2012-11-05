@@ -2,4 +2,5 @@
 
 <%= render 'form' %>
 
+<%= link_to 'Update Review', @review %> |
 <%= link_to 'Back to venue page', @review.venue %>

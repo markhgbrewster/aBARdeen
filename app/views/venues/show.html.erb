@@ -20,10 +20,10 @@
   <%= @venue.postcode %>
 </p>
 
-<p>
+<!--<p>
   <b>Review:</b>
   <%= @venue.review %>
-</p>
+</p> !-->
 
 <p>
   <b>Average Star rating:</b>
@@ -34,6 +34,7 @@
   <b>Health rating:</b>
   <%= @venue.health_rating %>
 </p>
+
 
 <p>
   <b>Health rating date:</b>
@@ -50,6 +51,27 @@
   <%= @venue.latitude %>
 </p>
 
+<%= button_to 'Create a new Review', new_review_path(:venue_id => @venue.id) %>
 
-<%= link_to 'Edit', edit_venue_path(@venue) %> |
-<%= link_to 'Back', venues_path %>
+      <div><h2>Reviews</h2></div>
+
+   <% @reviews.each do |review| %>
+   <p> <%= review.updated_at  %></p>
+    <p><%= review.review_summary %></p>
+
+
+
+           <div>
+              <p>Star Rating: <%= review.star_rating %></p>
+              <p>Review Text: <%= review.review_text %></p>
+           </div>
+
+        <%end%>
+
+
+	<p><% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      	<% end %></p>
+
+<!--<%= link_to 'Edit', edit_venue_path(@venue) %> |
+<%= link_to 'Back', venues_path %> !--> 
