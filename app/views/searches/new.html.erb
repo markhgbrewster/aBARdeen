@@ -2,11 +2,4 @@
 
 <%= render 'form' %>
 
-
-<%= @doc.xpath('//establishmentdetail').each do |establishmentdetail| %>
-
-<% if establishmentdetail.businesstypeid.content =='7843'%>
-<p><%= establishmentdetail.businessname.content %></p>
-
-<%end%>
-<%end%> 
+ 

@@ -14,12 +14,6 @@ class SearchesController < ApplicationController
   # GET /searches/1.json
   def show
     @search = Search.find(params[:id])
-    @doc = Nokogiri::Slop(open('http://ratings.food.gov.uk/OpenDataFiles/FHRS760en-GB.xml'))
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @search }
-    end
   end
 
   # GET /searches/new
@@ -30,7 +24,8 @@ class SearchesController < ApplicationController
     #source = Net::HTTP.get(uri)
     #document = REXML::Document.new(source)
     #@arr = document.elements.each("EstablishmentCollection/EstablishmentDetail") { |element| puts element.BusinessName.text }
-    @doc = Nokogiri::Slop(open('http://ratings.food.gov.uk/OpenDataFiles/FHRS760en-GB.xml'))
+    @doc = Nokogiri::HTML(open('http://ratings.food.gov.uk/OpenDataFiles/FHRS760en-GB.xml'))
+    @establishmentdetails = @doc.xpath('//establishmentdetail')
     
     respond_to do |format|
       format.html # new.html.erb
