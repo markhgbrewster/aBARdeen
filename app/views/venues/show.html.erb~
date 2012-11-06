@@ -46,7 +46,7 @@
 <div>
    <% @reviews.each do |review| %>
 <div class= "review">
-   <p> <%= review.updated_at, :format => :long  %></p>
+   <p> <%= review.updated_at.to_formatted_s(:long) %></p>
     <p><%= review.review_summary %></p>
            <div>
               <p>Star Rating: <%= review.star_rating %></p>

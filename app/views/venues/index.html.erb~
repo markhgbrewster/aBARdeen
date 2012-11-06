@@ -5,13 +5,8 @@
     <th>Name</th>
     <th>Street</th>
     <th>City</th>
-    <th>Postcode</th>
-    <th>Review</th>
-    <th>Star rating</th>
+    <th>Average star rating</th>
     <th>Health rating</th>
-    <th>Health rating date</th>
-    <th>Longitude</th>
-    <th>Latitude</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,14 +16,8 @@
   <tr>
     <td><%= venue.name %></td>
     <td><%= venue.street %></td>
-    <td><%= venue.city %></td>
-    <td><%= venue.postcode %></td>
-    <td><%= venue.review %></td>
     <td><%= venue.avg_star_rating %></td>
     <td><%= venue.health_rating %></td>
-    <td><%= venue.health_rating_date %></td>
-    <td><%= venue.longitude %></td>
-    <td><%= venue.latitude %></td>
     <td><%= link_to 'Show', venue %></td>
     <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
     <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
