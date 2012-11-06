@@ -14,6 +14,7 @@ class SearchesController < ApplicationController
   # GET /searches/1.json
   def show
     @search = Search.find(params[:id])
+    @doc = Nokogiri::Slop(open('http://ratings.food.gov.uk/OpenDataFiles/FHRS760en-GB.xml'))
 
     respond_to do |format|
       format.html # show.html.erb
@@ -45,17 +46,8 @@ class SearchesController < ApplicationController
   # POST /searches
   # POST /searches.json
   def create
-    @search = Search.new(params[:search])
-
-    respond_to do |format|
-      if @search.save
-        format.html { redirect_to @search, notice: 'Search was successfully created.' }
-        format.json { render json: @search, status: :created, location: @search }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @search.errors, status: :unprocessable_entity }
-      end
-    end
+    @search = Search.create!(params[:search])
+    redirect_to @search
   end
 
   # PUT /searches/1
