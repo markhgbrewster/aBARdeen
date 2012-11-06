@@ -1,30 +1,15 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @venue.name %>
-</p>
+<h1> <%= @venue.name %> </h1>
 
 <p>
-  <b>Street:</b>
-  <%= @venue.street %>
+  <b>Address:</b>
+  <p><%= @venue.street %></p>
+  <p><%= @venue.city %></p>
+  <p><%= @venue.postcode %></p>
 </p>
 
-<p>
-  <b>City:</b>
-  <%= @venue.city %>
-</p>
-
-<p>
-  <b>Postcode:</b>
-  <%= @venue.postcode %>
-</p>
-
-<!--<p>
-  <b>Review:</b>
-  <%= @venue.review %>
-</p> !-->
 
 <p>
   <b>Average Star rating:</b>
@@ -61,7 +46,7 @@
 <div>
    <% @reviews.each do |review| %>
 <div class= "review">
-   <p> <%= review.updated_at  %></p>
+   <p> <%= review.updated_at.to_formatted_s(:long) %></p>
     <p><%= review.review_summary %></p>
            <div>
               <p>Star Rating: <%= review.star_rating %></p>
