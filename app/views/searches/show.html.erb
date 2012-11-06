@@ -1,25 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+
+<%= @doc.xpath('//establishmentdetail').each do |establishmentdetail| %>
+
+<% if establishmentdetail.businesstypeid.content =='7843'%>
+<% if (establishmentdetail.businessname.content.downcase.include? @search.name.downcase) || ((establishmentdetail.addressline2.content.downcase.include? @search.street.downcase)&&(@search.street!=''))%>
 <p>
   <b>Name:</b>
-  <%= @search.name %>
+  <%= establishmentdetail.businessname.content %>
 </p>
-
 <p>
-  <b>Rating:</b>
-  <%= @search.rating %>
-</p>
-
-<p>
-  <b>Venue:</b>
-  <%= @search.venue_id %>
-</p>
-
-<p>
-  <b>Street:</b>
-  <%= @search.street %>
+  <b>Address:</b>
+  <%= establishmentdetail.addressline2.content %>
 </p>
 
 
+<%end%>
+<%end%>
+
+<%end%>
 <%= link_to 'Edit', edit_search_path(@search) %> |
 <%= link_to 'Back', searches_path %>
