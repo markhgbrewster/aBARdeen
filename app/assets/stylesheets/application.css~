@@ -14,34 +14,36 @@
  */
 
 body.body{background-color:#FBFBFA;
- font-size: 13px;
- font-family: sans-serif;
+font-size: 13px;
+font-family: sans-serif;
 }
 
-div.container {font-family: sans-serif;
+div.container {
+ font-family: sans-serif;
  width: 980px;
  margin: 0 auto;
  background-color: white;
 }
 
 div.content{position: relative;
- float:left;
- width: 980px;
- margin-bottom: 100px;
+float:left;
+width: 980px;
+
+margin-bottom: 100px;
 }
 
 div.move_content{position: relative;
- float:left;
- margin-left:100px;
+float:left;
+margin-left:100px;
 }
 
 
 div.footer{ position: relative;
- float:left;
- text-align:center;
- width: 980px;
- background-color:#E0E0D1;
- height:120px;
+float:left;
+text-align:center;
+width: 980px;
+background-color:#E0E0D1;
+height:120px;
 }
 
 ul#footer { position: relative;
