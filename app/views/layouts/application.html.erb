@@ -9,15 +9,33 @@
 
 <body class="body">
   <div class="container">
-	    <%= render 'layouts/header' %>
-	    	<div class="content_background">
-		  <div class="content">
-		     <div class = "move_content">
-		  	<%= yield %>
-		     </div>
-		    </div>
-		</div>
-	    <%= render 'layouts/footer' %>
+    <%= render 'layouts/header' %>
+        <div class="content_background">
+	  <div class="content">
+            <div id="user_nav">
+              <%# Comment: Display different links depending if user is signed in %>
+          
+            <% if admin_signed_in? %>
+              <p>Signed in as <%= current_admin.email %> 
+              <%= link_to "Sign out", destroy_admin_session_path, :method => :delete %> </p> 
+            <% elsif user_signed_in? %>  
+              <p>Signed in as <%= current_user.email %>. Not you?  
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></p>  
+            <% else %>  
+              <p><%= link_to "Sign in", new_user_session_path %>
+              or <%= link_to "Sign in as administrator", new_admin_session_path %></p>
+            <% end %>  
+            </div>
+              	<p class="notice"><%= notice %></p>
+                <p class="alert"><%= alert %></p>
+	    <div class = "move_content">
+	  	<%= yield %>
+	    </div>
+	  </div>
+        </div>
+    <%= render 'layouts/footer' %>
   </div>
+  
 </body>
 </html>
+

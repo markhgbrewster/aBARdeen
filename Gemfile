@@ -8,6 +8,8 @@ gem 'rails', '3.2.6'
 
 group :test, :development do
  gem 'sqlite3'
+ gem 'rspec-rails'
+ gem "factory_girl_rails", ">= 3.3.0"
 end
 
 group :production do
@@ -15,7 +17,7 @@ group :production do
   gem 'pg'
 end
 
-
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -36,6 +38,7 @@ gem 'nokogiri', '1.5.5'
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'email_spec'
 end
 
 
