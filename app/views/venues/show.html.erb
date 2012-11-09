@@ -43,9 +43,9 @@
       </div>
 
       <%= button_to 'Add a new Review', new_review_path(:venue_id => @venue.id) %>
-<div>
+<div class= "venue_show_content">
    <% @reviews.each do |review| %>
-<div class= "reviews_in_venue_show">
+<div class= "pinched">
    <p> <%= review.updated_at.to_formatted_s(:long) %></p>
     <p><%= review.review_summary %></p>
            <div>
