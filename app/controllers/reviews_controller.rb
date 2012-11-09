@@ -1,6 +1,9 @@
 class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
+  
+  before_filter :authenticate_user_or_admin!, :only => [:new, :edit, :update, :destroy]
+  
   def index
     @reviews = Review.all
 
