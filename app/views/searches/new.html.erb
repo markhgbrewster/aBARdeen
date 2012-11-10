@@ -3,8 +3,9 @@
 <%= render 'form' %>
 
 <% @twitter.each do |twitter| %>
-<p><%= twitter.text %>
-<%= twitter.created_at %>
-<%= twitter.source %>
+<p>
+<%= link_to "Twitter Feed", "http://twitter.com/#{twitter.user.screen_name}", :target => "_blank" %>
+<%=raw display_content_with_links(twitter.text) %>
+<%= twitter.created_at.strftime("%d/%m/%Y %H:%M") %>
 <%end%>
 

@@ -19,7 +19,7 @@ class SearchesController < ApplicationController
   # GET /searches/new
   # GET /searches/new.json
   def new
-    @twitter=Twitter.user_timeline("@foodgov")[0..4]
+    @twitter=Twitter.user_timeline("@stephenfry")[0..4]
     @search = Search.new
     #uri = URI('http://ratings.food.gov.uk/OpenDataFiles/FHRS760en-GB.xml')
     #source = Net::HTTP.get(uri)
