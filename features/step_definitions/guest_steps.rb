@@ -3,6 +3,6 @@ Given /^a user visits the home page$/ do
 end
 
 Then /^he should see a welcome message$/ do
-  page.should have_content('Welcome')
+  assert page.has_content?('New search')
 end
 
