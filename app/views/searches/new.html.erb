@@ -2,4 +2,9 @@
 
 <%= render 'form' %>
 
- 
+<% @twitter.each do |twitter| %>
+<p><%= twitter.text %>
+<%= twitter.created_at %>
+<%= twitter.source %>
+<%end%>
+
