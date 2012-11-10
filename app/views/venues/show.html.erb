@@ -1,12 +1,14 @@
-
+<%= stylesheet_link_tag 'gmaps4rails' %>
 <p id="notice"><%= notice %></p>
 
 <h1> <%= @venue.name %> </h1>
 
 <p>
   <b>Address:</b>
-  <p><%= @venue.street %></p>
-  <p><%= @venue.city %></p>
+  <p><%= @venue.address1 %></p>
+  <p><%= @venue.address2 %></p>
+  <p><%= @venue.address3 %></p>
+  <p><%= @venue.address4 %></p>
   <p><%= @venue.postcode %></p>
 </p>
 
@@ -27,15 +29,13 @@
   <%= @venue.health_rating_date %>
 </p>
 
-<p>
-  <b>Longitude:</b>
-  <%= @venue.longitude %>
-</p>
+      <div>
+      	<h2>Location</h2>
+      </div>
 
-<p>
-  <b>Latitude:</b>
-  <%= @venue.latitude %>
-</p>
+<!--<%= gmaps4rails(@json) %>-->
+<%= gmaps("markers" => {"data" => @map}, "map_options" => {"processing" => "json", "auto_adjust" => false, "auto_zoom" => false, "zoom" => 5}) %>
+
 
 
       <div>

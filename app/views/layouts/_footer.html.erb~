@@ -7,5 +7,5 @@
 			<li id="footer">Link4</li>
 		</ul>
 		</div>
-	<%= yield :scripts %>
+
 </div>

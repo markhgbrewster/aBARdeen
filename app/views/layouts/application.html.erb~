@@ -5,19 +5,49 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" charset="utf-8">
+  function gmaps4rails_callback() {
+    if (Gmaps4Rails.markers.length == 1) {
+     //only one marker, choose the zoom level you expect
+     Gmaps4Rails.map.setZoom(2);
+    }
+    else{
+     //more than one marker, let's auto_zoom
+     Gmaps4Rails.map_options.auto_zoom = true;
+     Gmaps4Rails.adjust_map_to_bounds();
+    }
+  }
+</script>
 </head>
 
 <body class="body">
   <div class="container">
     <%= render 'layouts/header' %>
-    	<div class="content_background">
+        <div class="content_background">
 	  <div class="content">
-	     <div class = "move_content">
+            <div id="user_nav">
+              <%# Comment: Display different links depending if user is signed in %>
+
+            <% if admin_signed_in? %>
+              <p>Signed in as <%= current_admin.email %>
+              <%= link_to "Sign out", destroy_admin_session_path, :method => :delete %> </p>
+            <% elsif user_signed_in? %>
+              <p>Signed in as <%= current_user.email %>. Not you?
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></p>
+            <% else %>
+              <p><%= link_to "Sign in", new_user_session_path %>
+              or <%= link_to "Sign in as administrator", new_admin_session_path %></p>
+            <% end %>
+            </div>
+              	<p class="notice"><%= notice %></p>
+                <p class="alert"><%= alert %></p>
+	    <div class = "move_content">
 	  	<%= yield %>
-	     </div>
 	    </div>
-	</div>
+	  </div>
+        </div>
     <%= render 'layouts/footer' %>
   </div>
+
 </body>
 </html>

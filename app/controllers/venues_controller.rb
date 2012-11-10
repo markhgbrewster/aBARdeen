@@ -1,9 +1,9 @@
 class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.json
-  
-  before_filter :authenticate_user_or_admin!, :only => [:new, :edit, :destroy]
-  
+
+ # before_filter :authenticate_user_or_admin!, :only => [:new, :edit, :destroy]
+
   def index
     @venues = Venue.all
 
@@ -18,6 +18,8 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find(params[:id])
     @reviews = @venue.reviews
+    @json = Venue.find(params[:id]).to_gmaps4rails
+
 
 
     respond_to do |format|
@@ -57,10 +59,11 @@ class VenuesController < ApplicationController
       :address3 => establishmentdetail.at_xpath("addressline3").nil? ? '': establishmentdetail.at_xpath("addressline3").text,
       :address4 => establishmentdetail.at_xpath("addressline4").nil? ? '': establishmentdetail.at_xpath("addressline4").text,
       :postcode => establishmentdetail.at_xpath("postcode").nil? ? '': establishmentdetail.at_xpath("postcode").text,
+      # :address => establishmentdetail.at_xpath("postcode").nil? ? '': establishmentdetail.at_xpath("postcode").text,
       :health_rating => establishmentdetail.at_xpath("ratingvalue").nil? ? '': establishmentdetail.at_xpath("ratingvalue").text,
       :health_rating_date => establishmentdetail.at_xpath("ratingdate").nil? ? '': establishmentdetail.at_xpath("ratingdate").text,
-      :longitude=> establishmentdetail.at_xpath("//longitude").nil? ? '': establishmentdetail.at_xpath("//longitude").text,
-      :latitude => establishmentdetail.at_xpath("//latitude").nil? ? '': establishmentdetail.at_xpath("//latitude").text,
+      #:longitude=> establishmentdetail.at_xpath("//longitude").nil? ? '': establishmentdetail.at_xpath("//longitude").text,
+      #:latitude => establishmentdetail.at_xpath("//latitude").nil? ? '': establishmentdetail.at_xpath("//latitude").text,
       :business_id =>establishmentdetail.at_xpath("fhrsid").text
     )
     end

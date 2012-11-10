@@ -82,6 +82,7 @@ GEM
       json (>= 1.4.6)
     gherkin (2.11.2-x86-mingw32)
       json (>= 1.4.6)
+    gmaps4rails (1.5.6)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -185,6 +186,7 @@ DEPENDENCIES
   devise
   email_spec
   factory_girl_rails (>= 3.3.0)
+  gmaps4rails
   jquery-rails
   nokogiri (= 1.5.5)
   pg
