@@ -3,10 +3,7 @@
 <%= render 'form' %>
 
 
-<% @twitter.each do |twitter| %>
+<a class="twitter-timeline" href="https://twitter.com/foodgov" data-widget-id="267711179063951361", width="200" height="400">Tweets by @foodgov</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 
-<%= link_to "Twitter Feed", "http://twitter.com/#{twitter.user.screen_name}", :target => "_blank" %>
-<%=raw display_content_with_links(twitter.text) %>
-<%= twitter.created_at.strftime("%d/%m/%Y %H:%M") %> 
-<%end%>
