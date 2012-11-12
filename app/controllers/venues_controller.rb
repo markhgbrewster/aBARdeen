@@ -21,7 +21,6 @@ class VenuesController < ApplicationController
     @json = Venue.find(params[:id]).to_gmaps4rails
 
 
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @venue }
@@ -68,8 +67,8 @@ class VenuesController < ApplicationController
       :business_id =>establishmentdetail.at_xpath("fhrsid").text
     )
       end
-  end
-   redirect_to root_path
+    end
+    redirect_to(venues_path, :notice => "Venues were successfully updated")
   end
 
   # PUT /venues/1

@@ -1,25 +1,23 @@
-<h1>Listing venues</h1>
+<h1>A list of venues in Aberdeen</h1>
 
-<table>
+<table class="venue">
   <tr>
-    <th>Name</th>
-    <th>Street</th>
-    <th>Average star rating</th>
-    <th>Health rating</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th class="venue">Name</th>
+    <th class="venue">Average star rating</th>
+    <th class="venue">Health rating</th>
+    <th class="venue"></th>
+    <th class="venue"></th>
+    <th class="venue"></th>
   </tr>
 
 <% @venues.each do |venue| %>
   <tr>
-    <td><%= venue.name %></td>
-    <td><%= venue.street %></td>
-    <td><%= venue.avg_star_rating %></td>
-    <td><%= venue.health_rating %></td>
-    <td><%= link_to 'Show', venue %></td>
-    <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
-    <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class="venue"><%= venue.name %></td>
+    <td class="venue"><%= venue.avg_star_rating %></td>
+    <td class="venue"><%= venue.health_rating %></td>
+    <td class="venue"><%= link_to 'Show', venue %></td>
+    <td class="venue"><%= link_to 'Edit', edit_venue_path(venue) %></td>
+    <td class="venue"><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

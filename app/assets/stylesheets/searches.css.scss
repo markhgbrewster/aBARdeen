@@ -3,3 +3,46 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+div.sidebar {
+    position: relative;
+    float:left;
+    width: 200px;
+    left: 100px;
+}
+
+div.left_column {
+    position: relative;
+    float:left;
+    width: 500px;
+}
+
+div.form {
+    border: solid 1px grey;
+    padding: 5px;
+}
+div.table {
+    margin-top: 50px;
+}
+
+table.tweet { border: 1px solid #E0E0D1;
+padding: 2px;
+}
+th.tweet, td.tweet
+{
+padding:3px;
+}
+
+tr.tweet:nth-child(even) {background: #0099FF}
+tr.tweet:nth-child(odd) {background: #99D6FF}
+
+legend {
+    font-style: italic;
+    color: #848484;
+}
+
+p.home {
+    width: 800px;
+    font-style: italic;
+    color: #848484;
+}
