@@ -19,7 +19,7 @@
               <p>Signed in as <%= current_admin.email %>
               <%= link_to "Sign out", destroy_admin_session_path, :method => :delete %> </p>
             <% elsif user_signed_in? %>
-              <p>Signed in as <%= current_user.email %>. Not you?
+              <p>Signed in as <%= current_user.name %>. Not you?
               <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></p>
             <% else %>
               <p><%= link_to "Sign in", new_user_session_path %>

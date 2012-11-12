@@ -1,6 +1,8 @@
 Barrating::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users#, :path_prefix => 'a'
+  
+  resources :users#, only: [:show, :edit, :update]
   
   devise_for :admins
 

@@ -3,6 +3,7 @@ require 'spec_helper'
 describe User do
   before(:each) do
     @usatt = { 
+      :name => "User",
       :email => "user@example.com",
       :password => "password",
       :password_confirmation => "password"
@@ -24,6 +25,10 @@ describe User do
     invalid_email = User.new(@usatt.merge(:email => e))
     invalid_email.should_not be_valid
     end
+  end
+  
+  it "should require a unique name" do
+  
   end
   
    describe "passwords" do

@@ -2,8 +2,8 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.json
 
-  before_filter :authenticate_user!, :only => [:new, :edit, :update]
-  before_filter :authenticate_admin!, :only => [:destroy]
+  before_filter :authenticate_user_or_admin!, :only => [:update]
+  before_filter :authenticate_admin!, :only => [:new, :edit, :destroy]
 
   def index
     @venues = Venue.all
