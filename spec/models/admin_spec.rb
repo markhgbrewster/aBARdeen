@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'admin'
 
 describe Admin do
   before(:each) do

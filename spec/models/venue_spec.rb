@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Venue do
-  it "has a valid factory" do
-    FactoryGirl.create(:venue).should be_valid
-  end
+  #it "has a valid factory" do
+   # FactoryGirl.create(:venue).should be_valid
+  #end
   
   it "is invalid without a name" do
     
