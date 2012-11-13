@@ -36,12 +36,12 @@ else
   validates_attachment_content_type :photo, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/pjepg', 'image/x-png', 'image/pjpeg']
 
 
-acts_as_gmappable
-#:check_process => :update
+#acts_as_gmappable
+#:check_process => :show
 
-def gmaps4rails_address
+#def gmaps4rails_address
 #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
-  "#{self.name}, #{self.address1}, #{self.address2}, #{self.address3}, #{self.address4}, #{self.postcode}"
-end
+  #"#{self.name}, #{self.address1}, #{self.address2}, #{self.address3}, #{self.address4}, #{self.postcode}"
+#end
 
 end

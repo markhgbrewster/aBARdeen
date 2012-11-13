@@ -2,8 +2,8 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.json
 
- #before_filter :authenticate_user_or_admin!, :only => [:update]
- #before_filter :authenticate_admin!, :only => [:new, :edit, :destroy]
+ before_filter :authenticate_user_or_admin!, :only => [:update]
+ before_filter :authenticate_admin!, :only => [:new, :edit, :destroy]
 
   def index
     @venues = Venue.all
@@ -19,8 +19,8 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find(params[:id])
     @reviews = @venue.reviews
-    @json = Venue.find(params[:id]).to_gmaps4rails
-
+    @address=@venue.address1 + ' ' + @venue.address2+ ' ' +@venue.address3+ ' ' +@venue.address4+ ' ' +@venue.postcode
+    #@json = Venue.find(params[:id]).to_gmaps4rails
 
     respond_to do |format|
       format.html # show.html.erb

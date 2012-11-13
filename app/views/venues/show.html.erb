@@ -1,3 +1,33 @@
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript">
+  function initialize() {
+    var venueLocation = "<%=@address%>"  ;
+    var geocoder = new google.maps.Geocoder();
+        //convert location into longitude and latitude
+    geocoder.geocode({
+	address: venueLocation
+    }, function(locResult) {
+	console.log(locResult);
+	var lat1 = locResult[0].geometry.location.lat();
+	var lng1 = locResult[0].geometry.location.lng();
+	//$("#testDiv").html("latitude:" + lat1 + "<p>longitude:" + lng1 + "</p>");
+	var latlng = new google.maps.LatLng(lat1,lng1);
+	var myOptions = {
+	  zoom: 18,
+	  center: latlng,
+	  mapTypeId: google.maps.MapTypeId.ROADMAP	
+	};
+	var map = new google.maps.Map(document.getElementById("map_canvas_sat"), myOptions);
+      });
+    
+  }
+</script>
+  
+</head>
+<body onload="initialize()">
 <%= stylesheet_link_tag 'gmaps4rails' %>
 
 <div class="venue_show_all_content">
@@ -57,11 +87,11 @@
 
 	<div>
 		<h2>Location</h2>
+		<div id="map_canvas_sat" style="width:300px; height:300px;"></div>
+		<div id="testDiv"></div>
 	</div>
 
-	<!-- <%= gmaps4rails(@json)%> -->
-	<%= gmaps("markers" => {"data" => @map}, "map_options" => {"processing" => "json", "auto_adjust" => false, "auto_zoom" => false, "zoom" => 5}) %>
-
+	
 
 
 	<div>
@@ -118,3 +148,4 @@
 		<% end %></p> !-->
 	</div>
 </div>
+</body>
