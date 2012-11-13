@@ -2,8 +2,8 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.json
 
-  before_filter :authenticate_user_or_admin!, :only => [:update]
-  before_filter :authenticate_admin!, :only => [:new, :edit, :destroy]
+ # before_filter :authenticate_user_or_admin!, :only => [:update]
+ # before_filter :authenticate_admin!, :only => [:new, :edit, :destroy]
 
   def index
     @venues = Venue.all
@@ -52,7 +52,7 @@ class VenuesController < ApplicationController
     @establishmentdetails = @doc.xpath('//establishmentdetail')
     @establishmentdetails.each do |establishmentdetail|
     if establishmentdetail.at("businesstypeid").text =='7843'
-      @venue = Venue.find_or_initialize_by_business_id(establishmentdetail.at_xpath("fhrsid").text)
+      @venue = Venue.find_or_create_by_business_id(establishmentdetail.at_xpath("fhrsid").text)
       @venue.update_attributes(
       :name => establishmentdetail.at_xpath("businessname").text,
       :address1 => establishmentdetail.at_xpath("addressline1").nil? ? '': establishmentdetail.at_xpath("addressline1").text,
@@ -65,7 +65,7 @@ class VenuesController < ApplicationController
       :health_rating_date => establishmentdetail.at_xpath("ratingdate").nil? ? '': establishmentdetail.at_xpath("ratingdate").text,
       #:longitude=> establishmentdetail.at_xpath("//longitude").nil? ? '': establishmentdetail.at_xpath("//longitude").text,
       #:latitude => establishmentdetail.at_xpath("//latitude").nil? ? '': establishmentdetail.at_xpath("//latitude").text,
-      :business_id =>establishmentdetail.at_xpath("fhrsid").text
+      :business_id =>establishmentdetail.at_xpath("fhrsid")
     )
       end
     end
