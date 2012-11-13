@@ -26,7 +26,6 @@ body.body{ background-color:#848484;
 div.container {font-family: sans-serif;
  width: 980px;
  margin: 0 auto;
-
 }
 
 div.content_background { background-color: #FFFFFF;
@@ -47,3 +46,8 @@ div.move_content{position: relative;
  float:left;
  margin-left:100px;
 }
+
+div#user_nav {
+    margin-left: 10px;
+}
+

@@ -1,5 +1,40 @@
-<h1>New search</h1>
+<p class="home">Concerned for the hygiene of the bars you are visiting? Now you can search for bars in the Aberdeen area, check if they have passed their hygiene test,
+review them and check other customers' reviews and see the location on a map. What more could you ask for?</p>
+<h1>Search for a bar in Aberdeen</h1>
 
+<div class='left_column'>
+<div class="form"> 
 <%= render 'form' %>
+</div>
+  <div class="table">
+    <table class="tweet">
+    <legend>Latest Tweets from Aberdeen concerning bars</legend>
+    <tr class="tweet">  
+      <th class="tweet">
+        From
+      </th>
+      <th class="tweet">
+        Text
+      </th>
+      <th class="tweet">
+        Sent
+      </th>
+    </tr>
+    <% @twitter_info.each do |twitter_info| %>
+    <tr class="tweet">
+      <td class="tweet"><%=twitter_info.from_user %></td>
+      <td class="tweet"><%=raw display_content_with_links(twitter_info.text) %></td>
+      <td class="tweet"><%=twitter_info.created_at.strftime("%d/%m/%Y") %></td>
+    </tr>
+    <%end%>
+    </table>
+  </div>
+</div>
 
- 
+<div class="sidebar">
+<a class="twitter-timeline" href="https://twitter.com/foodgov" data-widget-id="267711179063951361" width="200" height="420">Tweets by @foodgov</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+
+
+

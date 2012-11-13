@@ -3,4 +3,6 @@ class Review < ActiveRecord::Base
 
   belongs_to :venue
   belongs_to :user
+  
+  validates :review_summary, :review_text, :star_rating, :presence => true
 end

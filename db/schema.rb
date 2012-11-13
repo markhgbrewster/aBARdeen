@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121111190108) do
+=======
+ActiveRecord::Schema.define(:version => 20121112145026) do
+>>>>>>> 26d6cb3ad18d5686f4af13386892b29a942bc972
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -63,10 +67,14 @@ ActiveRecord::Schema.define(:version => 20121111190108) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+<<<<<<< HEAD
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+=======
+    t.string   "name"
+>>>>>>> 26d6cb3ad18d5686f4af13386892b29a942bc972
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

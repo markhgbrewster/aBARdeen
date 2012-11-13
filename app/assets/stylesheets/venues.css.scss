@@ -18,6 +18,14 @@ div.venue_show_all_reviews{ position: relative;
 	padding: 0px;
 	margin-bottom: 100px;
 	}
+table.venue { border: 1px solid #E0E0D1;
+padding: 2px;
+}
+th.venue, td.venue
+{
+padding:3px;
+border: 1px solid #E0E0D1;
+}
 
 div.review_last_updated_venue_show{ margin-top: -10px;
 	margin-left: 275px;

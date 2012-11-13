@@ -12,7 +12,7 @@
 	</div>
 
 	<div>
-		<% if admin_signed_in? %>
+		<% if signed_in? %>
 			<%= form_for(@venue) do |f| %>
 				<div class="field">
 				<%= f.file_field :photo %>
@@ -59,7 +59,7 @@
 		<h2>Location</h2>
 	</div>
 
-
+	<!-- <%= gmaps4rails(@json)%> -->
 	<%= gmaps("markers" => {"data" => @map}, "map_options" => {"processing" => "json", "auto_adjust" => false, "auto_zoom" => false, "zoom" => 5}) %>
 
 

@@ -3,7 +3,13 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+<<<<<<< HEAD
   <%= f.file_field :avatar %>
+=======
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name %></div>
+  
+>>>>>>> 26d6cb3ad18d5686f4af13386892b29a942bc972
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
 

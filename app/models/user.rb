@@ -5,7 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
+
   attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar
+  # attr_accessible :title, :body
+
+  #validates :name, :presence => true
+  #validates_uniqueness_of :name, :email, :case_sensitive => false
+
   if Rails.env.production?
   has_attached_file :avatar,
 
@@ -26,5 +32,4 @@ else
 
 
   has_many :reviews
-  # attr_accessible :title, :body
-end 
+end
