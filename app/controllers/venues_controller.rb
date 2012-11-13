@@ -65,7 +65,7 @@ class VenuesController < ApplicationController
       :health_rating_date => establishmentdetail.at_xpath("ratingdate").nil? ? '': establishmentdetail.at_xpath("ratingdate").text,
       #:longitude=> establishmentdetail.at_xpath("//longitude").nil? ? '': establishmentdetail.at_xpath("//longitude").text,
       #:latitude => establishmentdetail.at_xpath("//latitude").nil? ? '': establishmentdetail.at_xpath("//latitude").text,
-      :business_id =>establishmentdetail.at_xpath("fhrsid")
+      :business_id =>establishmentdetail.at_xpath("fhrsid").text
     )
       end
     end
