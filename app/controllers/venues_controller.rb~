@@ -18,8 +18,8 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find(params[:id])
     @reviews = @venue.reviews
-    @json = Venue..find(params[:id]).to_gmaps4rails
-
+    @json = Venue.find(params[:id]).to_gmaps4rails
+    #@venue = Venue.create( params[:venue] ) #paperclip
 
 
     respond_to do |format|
@@ -65,6 +65,7 @@ class VenuesController < ApplicationController
       #:longitude=> establishmentdetail.at_xpath("//longitude").nil? ? '': establishmentdetail.at_xpath("//longitude").text,
       #:latitude => establishmentdetail.at_xpath("//latitude").nil? ? '': establishmentdetail.at_xpath("//latitude").text,
       :business_id =>establishmentdetail.at_xpath("fhrsid").text
+
     )
     end
   end

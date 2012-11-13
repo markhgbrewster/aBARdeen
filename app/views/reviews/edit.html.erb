@@ -1,5 +1,45 @@
 <h1>Editing review</h1>
 
-<%= render 'form' %>
+<div class="review_form">
+<%= form_for(@review) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field" id="review_form_feilds">
+    <%= f.label :star_rating %><br />
+     1 <%= f.radio_button :star_rating, 1 %>
+     2 <%= f.radio_button :star_rating, 2 %>
+     3 <%= f.radio_button :star_rating, 3 %>
+     4 <%= f.radio_button :star_rating, 4 %>
+     5 <%= f.radio_button :star_rating, 5 %><br />
+   </div>
+
+  <div class="field" id="review_form_feilds">
+    <%= f.label :review_summary %><br />
+    <%= f.text_field :review_summary %>
+  </div>
+
+  <div class="field" id="review_form_feilds">
+    <%= f.label :review_text %><br />
+    <%= f.text_area :review_text %>
+  </div>
+
+  <div class="actions" id="review_form_feilds">
+    <%= f.submit  'Submit Review'%>
+  </div>
+
+<% end %>
+</div>
 
 <%= link_to 'Back to venue page', @review.venue %>

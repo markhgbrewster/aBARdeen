@@ -1,58 +1,120 @@
 <%= stylesheet_link_tag 'gmaps4rails' %>
-<p id="notice"><%= notice %></p>
 
-<h1> <%= @venue.name %> </h1>
+<div class="venue_show_all_content">
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Address:</b>
-  <p><%= @venue.address1 %></p>
-  <p><%= @venue.address2 %></p>
-  <p><%= @venue.address3 %></p>
-  <p><%= @venue.address4 %></p>
-  <p><%= @venue.postcode %></p>
-</p>
+	<div>
+		<h1> <%= @venue.name %> </h1>
+	</div>
+
+	<div>
+	<%= image_tag @venue.photo.url(:medium) %>
+	</div>
+
+	<div>
+		<% if signed_in? %>
+			<%= form_for(@venue) do |f| %>
+				<div class="field">
+				<%= f.file_field :photo %>
+				</div>
+
+				<div class="actions">
+				<%= f.submit %>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+
+	<div>
+		<div>
+			<p>
+			  <b>Address:</b>
+			  <p><%= @venue.address1 %></p>
+			  <p><%= @venue.address2 %></p>
+			  <p><%= @venue.address3 %></p>
+			  <p><%= @venue.address4 %></p>
+			  <p><%= @venue.postcode %></p>
+			</p>
+		</div>
+
+		<div>
+			<p>
+			  <b>Average Star rating:</b>
+			  <%= @venue.avg_star_rating %>
+			</p>
+
+			<p>
+			  <b>Health rating:</b>
+			  <%= @venue.health_rating %>
+			</p>
+
+			<p>
+			  <b>Health rating date:</b>
+			  <%= @venue.health_rating_date %>
+			</p>
+		</div>
+	</div>
+
+	<div>
+		<h2>Location</h2>
+	</div>
+
+	<!-- <%= gmaps4rails(@json)%> -->
+	<%= gmaps("markers" => {"data" => @map}, "map_options" => {"processing" => "json", "auto_adjust" => false, "auto_zoom" => false, "zoom" => 5}) %>
 
 
-<p>
-  <b>Average Star rating:</b>
-  <%= @venue.avg_star_rating %>
-</p>
 
-<p>
-  <b>Health rating:</b>
-  <%= @venue.health_rating %>
-</p>
+	<div>
+		<h2>Reviews</h2>
+	</div>
 
+	<div class="add_review_button_venue_show">
+		<% if user_signed_in? %>
+			<%= button_to 'Add a new Review', new_review_path(:venue_id => @venue.id, :user_id => current_user.id)%>
+		<% elsif admin_signed_in? %>
 
-<p>
-  <b>Health rating date:</b>
-  <%= @venue.health_rating_date %>
-</p>
+		<% else %>
+			<p> Please sign in to add a review </p>
+			<p><%= link_to "Sign in", new_user_session_path %></p>
+		<% end %>
+	</div>
 
-<!--<%= gmaps4rails(@json) %>-->
-<%= gmaps("markers" => {"data" => @map}, "map_options" => {"processing" => "json", "auto_adjust" => false, "auto_zoom" => false, "zoom" => 5}) %>
-
-
-
-      <div>
-      	<h2>Reviews</h2>
-      </div>
-
-      <%= button_to 'Add a new Review', new_review_path(:venue_id => @venue.id) %>
-<div class= "venue_show_content">
-   <% @reviews.each do |review| %>
-<div class= "pinched">
-   <p> <%= review.updated_at.to_formatted_s(:long) %></p>
-    <p><%= review.review_summary %></p>
-           <div>
-              <p>Star Rating: <%= review.star_rating %></p>
-              <p>Review Text: <%= review.review_text %></p>
-           </div>
-</div>
-        <%end%>
+	<div class= "venue_show_all_reviews">
+		<% @reviews.each do |review| %>
+			<div class = "one_review_in_venue_show">
 
 
-	<p><% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      	<% end %></p>
+				<div class="venue_show_user_avatar_review">
+					<%= image_tag review.user.avatar.url(:thumb) %>
+				</div>
+
+
+				<div class= "reviews_speech_bubble">
+					<div class= "review_last_updated_venue_show">
+						<p>Last updated on <%= review.updated_at.to_formatted_s(:long) %> </p>
+					</div>
+
+					<div class = "speech_bubble_text">
+						<p class="review_summary_venue_show"> <%= review.review_summary %> </p>
+						<p> Star Rating: <%= review.star_rating %> </p>
+						<p class="review_heading_speech_bubble" > Review: </p>
+						<p>  <%= review.review_text %> </p>
+						<% if user_signed_in? || admin_signed_in? %>
+							<% if current_user == review.user || admin_signed_in? %>
+							<div class= "review_venue_links">
+								<%= button_to 'Edit', edit_review_path(review), :method => "get" %>
+								<%= button_to 'Delete', review, method: :delete, data: { confirm: 'Are you sure you want to delete this review?' } %>
+							</div>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+
+			</div>
+		<%end%>
+
+		<!-- <p><% flash.each do |key, value| %>
+			<div class="alert alert-<%= key %>"><%= value %></div>
+		<% end %></p> !-->
+	</div>
 </div>
