@@ -13,6 +13,7 @@ Barrating::Application.routes.draw do
   resources :searches
 
   match '/home', to: 'searches#new'
+  match 'venues/:id', to: 'venues#show', via: [:get, :post]
 
   root :to => redirect("/home")
   match 'reviews/new', to: 'reviews#new', via: [:get, :post]
