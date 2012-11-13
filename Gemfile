@@ -39,6 +39,10 @@ gem 'nokogiri', '1.5.5'
 
 gem 'gmaps4rails'
 
+gem "paperclip", "~> 3.0"
+
+gem 'aws-sdk'
+
 group :test do
   gem 'capybara', '1.1.2'
   gem 'cucumber-rails', :require => false
