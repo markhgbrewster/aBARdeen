@@ -21,7 +21,6 @@ class VenuesController < ApplicationController
     @json = Venue.find(params[:id]).to_gmaps4rails
 
 
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @venue }
@@ -65,6 +64,7 @@ class VenuesController < ApplicationController
       #:longitude=> establishmentdetail.at_xpath("//longitude").nil? ? '': establishmentdetail.at_xpath("//longitude").text,
       #:latitude => establishmentdetail.at_xpath("//latitude").nil? ? '': establishmentdetail.at_xpath("//latitude").text,
       :business_id =>establishmentdetail.at_xpath("fhrsid").text
+
     )
     end
   end

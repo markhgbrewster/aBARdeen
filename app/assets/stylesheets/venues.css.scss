@@ -2,38 +2,59 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div.venue_show_content{
-	position: relative;
-	float:left;
-	margin-left: 120px;
-	width: 500px
+div.venue_show_all_content{ position: relative;
 	}
 
-//div.reviews_in_venue_show{
-//	background-color:#E0E0D1;
-//	margin-top: 10px;
-//	margin-right: 50%;
-//	width: 100%;
-//}
+div.add_review_button_venue_show{ position: relative;
+	margin-bottom: 60px;
+	bottom: 0px;
+	padding:0px;
+	}
 
+div.venue_show_all_reviews{ position: relative;
+	margin-left: 120px;
+	padding:0px;
+	width: 500px;
+	padding: 0px;
+	margin-bottom: 100px;
+	}
 
+div.review_last_updated_venue_show{ margin-top: -10px;
+	margin-left: 275px;
+	margin-bottom: 25px;
+	font-size: 85%;
+	}
 
-.pinched {
-	position:relative;
-	padding:15px;
+div.one_review_in_venue_show{ position: relative;
+	margin-bottom: 75px;
+	}
+
+div.venue_show_user_avatar_review{ position: relative;
+	width:100px;
+	padding: 0px;
+	z-index: 2;
+	right: 125px;
+	top: 0px;
+	}
+
+.reviews_speech_bubble { position: relative;
+	z-index: 1;
+	padding:5px;
 	margin-top: 10px;
-	margin:50px 0 3em;
-	text-align:center;
+	margin-bottom: 5px;
+	top: 0px;
+	text-align:left;
 	color:#fff;
+	margin:-90px 0 3em;
 	background:#333;
 	/* css3 */
 	-webkit-border-radius:10px;
 	-moz-border-radius:10px;
 	border-radius:10px;
-}
+	}
 
 /* creates a rectangle of the colour wanted for the pointy bit */
-.pinched:before {
+.reviews_speech_bubble:before {
 	content:"";
 	position:absolute;
 	top:-20px;
@@ -42,10 +63,10 @@ div.venue_show_content{
 	height:40px;
 	margin:50px 0 0 -265px;
 	background:#333;
-}
+	}
 
 /* creates a rounded rectangle to cover part of the rectangle generated above */
-.pinched:after {
+.reviews_speech_bubble:after {
 	content:"";
 	position:absolute;
 	top: 30px;
@@ -57,10 +78,10 @@ div.venue_show_content{
 	-webkit-border-bottom-left-radius:15px;
 	-moz-border-radius-bottomright:15px;
 	border-bottom-right-radius:15px;
-}
+	}
 
 /* creates the other rounded rectangle #fff*/
-.pinched > :first-child:before {
+.reviews_speech_bubble > :first-child:before {
 	content:"";
 	position:absolute;
 	top: 50px;
@@ -72,4 +93,18 @@ div.venue_show_content{
 	-webkit-border-top-right-radius:15px;
 	-moz-border-radius-topright:15px;
 	border-top-right-radius:15px;
-}
+	}
+
+div.speech_bubble_text{ margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	margin-top: -15px;
+	}
+
+
+p.review_summary_venue_show{ font-weight: bold;
+	font-size: 150%;
+	text-align: center;
+	}
+
+p.review_heading_speech_bubble{ font-weight: bold;}

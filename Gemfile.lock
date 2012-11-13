@@ -42,6 +42,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
+    cocaine (0.2.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -103,6 +104,12 @@ GEM
     nokogiri (1.5.5)
     nokogiri (1.5.5-x86-mingw32)
     orm_adapter (0.0.7)
+    paperclip (3.1.4)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
     pg (0.14.1)
     pg (0.14.1-x86-mingw32)
     polyglot (0.3.3)
@@ -190,6 +197,7 @@ DEPENDENCIES
   gmaps4rails
   jquery-rails
   nokogiri (= 1.5.5)
+  paperclip (~> 3.0)
   pg
   rails (= 3.2.6)
   rspec-rails

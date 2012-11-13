@@ -13,44 +13,9 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.file_field :photo %>
   </div>
-  <div class="field">
-    <%= f.label :street %><br />
-    <%= f.text_field :street %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :postcode %><br />
-    <%= f.text_field :postcode %>
-  </div>
-  <div class="field">
-    <%= f.label :review %><br />
-    <%= f.text_field :review %>
-  </div>
-  <div class="field">
-    <%= f.label :star_rating %><br />
-    <%= f.text_field :star_rating %>
-  </div>
-  <div class="field">
-    <%= f.label :health_rating %><br />
-    <%= f.text_field :health_rating %>
-  </div>
-  <div class="field">
-    <%= f.label :health_rating_date %><br />
-    <%= f.text_field :health_rating_date %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

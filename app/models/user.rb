@@ -5,6 +5,26 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar
+  if Rails.env.production?
+  has_attached_file :avatar,
+
+  :styles => { :medium => "300x300>", :thumb => "100x100>" },
+    :storage => :s3,
+    :url => ":s3_domain_url",
+    :path => "/:class/photos/:id_:basename.:style.:extension",
+    :s3_credentials => {
+      :bucket            => ENV['S3_BUCKET_NAME'],
+      :access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']}
+else
+  has_attached_file :avatar,
+   :styles => { :medium => "300x300>", :thumb => "100x100>" }
+
+  end
+  validates_attachment_content_type :avatar, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/pjepg', 'image/x-png', 'image/pjpeg']
+
+
+  has_many :reviews
   # attr_accessible :title, :body
-end
+end 
