@@ -19,6 +19,7 @@
             <% if admin_signed_in? %>
               <p>Signed in as <%= current_admin.email %>
               <%= link_to "Sign out", destroy_admin_session_path, :method => :delete %> </p>
+              <%= link_to 'Update the venues database', new_venue_path %>
             <% elsif user_signed_in? %>
               <p>Signed in as <%= current_user.name %>. Not you?
               <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></p>
@@ -27,7 +28,7 @@
               or <%= link_to "Sign in as administrator", new_admin_session_path %></p>
             <% end %>
             </div>
-              	<p class="notice"><%= notice %></p>
+              	<div class="notice"><p class="notice"><%= notice %></p></div>
                 <p class="alert"><%= alert %></p>
 	    <div class = "move_content">
 	  	<%= yield %>

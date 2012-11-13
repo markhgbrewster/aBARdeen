@@ -3,25 +3,27 @@
 <table class="venue">
   <tr>
     <th class="venue">Name</th>
-    <th class="venue">Average star rating</th>
     <th class="venue">Health rating</th>
     <th class="venue"></th>
+    <% if admin_signed_in? %>
     <th class="venue"></th>
     <th class="venue"></th>
+  <%end%>
   </tr>
 
 <% @venues.each do |venue| %>
   <tr>
     <td class="venue"><%= venue.name %></td>
-    <td class="venue"><%= venue.avg_star_rating %></td>
     <td class="venue"><%= venue.health_rating %></td>
     <td class="venue"><%= link_to 'Show', venue %></td>
+    <% if admin_signed_in? %>
     <td class="venue"><%= link_to 'Edit', edit_venue_path(venue) %></td>
     <td class="venue"><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <%end%>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Venue', new_venue_path %>
+
