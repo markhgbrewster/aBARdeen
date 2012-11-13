@@ -41,7 +41,7 @@ gem 'gmaps4rails'
 
 gem "paperclip", "~> 3.0"
 
-gem 'aws-sdk'
+gem "aws-sdk", "~> 1.7.1"
 
 group :test do
   gem 'capybara', '1.1.2'
