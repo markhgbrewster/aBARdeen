@@ -19,7 +19,7 @@ class SearchesController < ApplicationController
   # GET /searches/new
   # GET /searches/new.json
   def new
-    @twitter=Twitter.user_timeline("@stephenfry")[0..4]
+    #@twitter=Twitter.user_timeline("@stephenfry")[0..4]
     
     @twitter_info = Twitter.search("#aberdeen bar -rt", :count => 3, :result_type => "recent").results
       
