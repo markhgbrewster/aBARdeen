@@ -31,7 +31,7 @@ div.venue_map{ position: relative;
 	float: left;
 	margin-left: 50px;
 	margin-top: 45px;
-	top: -35px;
+	top: -50px;
 	border: 6px solid #333;
 	}
 
@@ -61,6 +61,14 @@ right: 300px
 div.venue_review_title{ position: relative;
 
 top: 25px;
+}
+
+div.admin_text_venue_review { position: relative;
+float:left;
+left: 300px;
+z-index: 4;
+bottom: 50px;
+width: 600px;
 }
 
 div.add_review_button_venue_show{ position: relative;
