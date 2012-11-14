@@ -16,11 +16,16 @@
 	//$("#testDiv").html("latitude:" + lat1 + "<p>longitude:" + lng1 + "</p>");
 	var latlng = new google.maps.LatLng(lat1,lng1);
 	var myOptions = {
-	  zoom: 18,
+	  zoom: 15,
 	  center: latlng,
 	  mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	var map = new google.maps.Map(document.getElementById("map_canvas_sat"), myOptions);
+	var myMarker = new google.maps.Marker({
+	  position: latlng,
+	  map: map,
+	  title: "<%=@venue.name %>"
+	});
       });
 
   }
@@ -140,7 +145,6 @@
 
 			</div>
 		<%end%>
-
 		<!-- <p><% flash.each do |key, value| %>
 			<div class="alert alert-<%= key %>"><%= value %></div>
 		<% end %></p> !-->
