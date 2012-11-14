@@ -114,7 +114,7 @@
 	</div>
 
 	<div class= "venue_show_all_reviews">
-	      <% if @reviews.count = 0 %>
+	      <% if @reviews.count == 0 %>
 	      <%else%>
 		<% @reviews.each do |review| %>
 			<div class = "one_review_in_venue_show">
