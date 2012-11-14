@@ -13,7 +13,7 @@ border-bottom: solid 1px black;
 
 div.social_networking{ position: relative;
 	float:left;
-	left: 200px;
+	left: 300px;
 	top: 65px;
 	padding: 2px;
 	}
