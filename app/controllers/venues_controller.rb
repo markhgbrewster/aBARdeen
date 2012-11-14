@@ -6,7 +6,7 @@ class VenuesController < ApplicationController
  before_filter :authenticate_admin!, :only => [:new, :edit, :destroy]
 
   def index
-    @venues = Venue.all
+    @venues = Venue.all(:order => "name")
 
     respond_to do |format|
       format.html # index.html.erb
