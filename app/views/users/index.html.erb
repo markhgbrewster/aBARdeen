@@ -2,10 +2,20 @@
 <ul class="users">
   <% @users.each do |user| %>
     <li>
-      <%= link_to user.name, user %> signed up <%= user.created_at.to_date %>
-      <%= link_to 'Edit', edit_user_registration_path%></br>
+      <div><%= image_tag user.avatar.url(:thumb) %></div>
+      <strong><%= link_to user.name, user %></strong> signed up <%= user.created_at.to_date %></br>
+      <% if admin_signed_in? %>
+      <%= link_to 'Edit', edit_user_registration_path%>
       <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </br>
+      <% elsif user_signed_in? %>
+        <% if user == current_user %>
+      <%= link_to 'Edit', edit_user_registration_path%>
+      </br>
+        <% end %>
+      <% end %>
+      </br>
     </li>
   <% end %>
-  
+
 </ul>

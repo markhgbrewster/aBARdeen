@@ -50,9 +50,10 @@
 	</div>
 
 	<div class= "venue_photo_button">
-		<% if admin_signed_in? %>
+		<% if user_signed_in? || admin_signed_in? %>
 			<%= form_for(@venue) do |f| %>
 				<div class="field">
+				<%= f.label "Upload a photo of this venue" %><br />
 				<%= f.file_field :photo %>
 				</div>
 
@@ -103,6 +104,7 @@
 			<% if user_signed_in? %>
 				<%= button_to 'Add a new Review', new_review_path(:venue_id => @venue.id, :user_id => current_user.id)%>
 			<% elsif admin_signed_in? %>
+			 <p> please sign out from the admin account and sign in again as a general user to add a review </p>
 
 			<% else %>
 				<p> Please sign in to add a review </p>

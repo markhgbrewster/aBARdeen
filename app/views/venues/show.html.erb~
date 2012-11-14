@@ -16,11 +16,16 @@
 	//$("#testDiv").html("latitude:" + lat1 + "<p>longitude:" + lng1 + "</p>");
 	var latlng = new google.maps.LatLng(lat1,lng1);
 	var myOptions = {
-	  zoom: 18,
+	  zoom: 15,
 	  center: latlng,
 	  mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	var map = new google.maps.Map(document.getElementById("map_canvas_sat"), myOptions);
+	var myMarker = new google.maps.Marker({
+	  position: latlng,
+	  map: map,
+	  title: "<%=@venue.name %>"
+	});
       });
 
   }
@@ -45,9 +50,10 @@
 	</div>
 
 	<div class= "venue_photo_button">
-		<% if admin_signed_in? %>
+		<% if user_signed_in? %>
 			<%= form_for(@venue) do |f| %>
 				<div class="field">
+				<%= f.label "Upload a photo of this venue" %><br />
 				<%= f.file_field :photo %>
 				</div>
 
@@ -98,6 +104,7 @@
 			<% if user_signed_in? %>
 				<%= button_to 'Add a new Review', new_review_path(:venue_id => @venue.id, :user_id => current_user.id)%>
 			<% elsif admin_signed_in? %>
+			 <p> please sign out from the admin account and sign in again as a general user to add a review </p>
 
 			<% else %>
 				<p> Please sign in to add a review </p>
@@ -113,6 +120,7 @@
 
 				<div class="venue_show_user_avatar_review">
 					<%= image_tag review.user.avatar.url(:thumb) %>
+					<%= review.user.name %>
 				</div>
 
 
@@ -139,7 +147,6 @@
 
 			</div>
 		<%end%>
-
 		<!-- <p><% flash.each do |key, value| %>
 			<div class="alert alert-<%= key %>"><%= value %></div>
 		<% end %></p> !-->
