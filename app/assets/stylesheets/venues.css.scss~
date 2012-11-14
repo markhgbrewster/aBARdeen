@@ -2,22 +2,90 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//venues index view
+
+table.venue { border: 1px solid #E0E0D1;
+	padding: 2px;
+	}
+th.venue, td.venue{ padding:3px;
+	border: 1px solid #E0E0D1;
+	}
+
+//venues show view
+
 div.venue_show_all_content{ position: relative;
 	}
 
+div.venue_photo{ position: relative;
+	float: left;}
+
+div.venue_photo_button{ position: relative;
+top: -25px;
+margin-top: 25px;
+
+}
+
+
+
+div.venue_map{ position: relative;
+	float: left;
+	margin-left: 50px;
+	margin-top: 45px;
+	top: -50px;
+	border: 6px solid #333;
+	}
+
+div.venue_details { position: relative;
+margin-bottom: 50px;
+
+}
+
+div.venue_address{ position: relative;
+	float: left;
+	left: 200px
+	}
+
+
+div.venue_rating{ position: relative;
+	float: left;
+	left: 250px;}
+
+
+div.review_venue_headings{ position: relative;
+
+top: 125px;
+right: 300px
+}
+
+
+div.venue_review_title{ position: relative;
+
+top: 25px;
+}
+
+div.admin_text_venue_review { position: relative;
+float:left;
+left: 300px;
+z-index: 4;
+bottom: 50px;
+width: 600px;
+}
+
 div.add_review_button_venue_show{ position: relative;
+	top: 10px;
 	margin-bottom: 60px;
-	bottom: 0px;
 	padding:0px;
 	}
 
 div.venue_show_all_reviews{ position: relative;
 	margin-left: 120px;
+	top: 125px;
 	padding:0px;
 	width: 500px;
 	padding: 0px;
 	margin-bottom: 100px;
 	}
+
 
 div.review_last_updated_venue_show{ margin-top: -10px;
 	margin-left: 275px;
@@ -45,7 +113,7 @@ div.venue_show_user_avatar_review{ position: relative;
 	top: 0px;
 	text-align:left;
 	color:#fff;
-	margin:-100px 0 3em;
+	margin:-125px 0 3em;
 	background:#333;
 	/* css3 */
 	-webkit-border-radius:10px;

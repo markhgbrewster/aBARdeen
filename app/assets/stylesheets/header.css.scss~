@@ -7,13 +7,20 @@ box-shadow: 0 0 500px 12px #151515;*/
 border-top: solid 1px black;
 border-left: solid 1px black;
 border-right: solid 1px black;
-background-color: red;
+background-color: #C00000;
+border-bottom: solid 1px black;
 }
+
+div.social_networking{ position: relative;
+	float:left;
+	left: 300px;
+	top: 65px;
+	padding: 2px;
+	}
 
 div.abardeen_title_header{ position: relative;
 float:left;
 margin-left: 40px;
-border-bottom: solid 1px black;
 }
 
 h1.abardeen_title_header{ position: relative;
@@ -28,8 +35,9 @@ float:left;
 height:50px;
 background-color: #B0B0AF;
 border-left: solid 1px black;
- border-right: solid 1px black;
+border-right: solid 1px black;
 font-size: 16px;
+width: 978px;
 }
 
 ul.header li a{ width:244.5px;

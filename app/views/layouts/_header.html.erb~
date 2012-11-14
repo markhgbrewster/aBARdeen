@@ -1,13 +1,22 @@
 <div class="header">
-<div class= "abardeen_title_header">
-		<h1 class="abardeen_title_header"> aBARdeen <h1>
-</div>
+	<div class= "abardeen_title_header">
+			<h1 class="abardeen_title_header"> aBARdeen* </h1>
 	</div>
+
+</div>
 <div class="navbar">
 			<ul id="list-nav" class="header">
 				<li> <%= link_to "Home", root_path %></li>
-				<li> <a href="#">Link2</a></li>
-				<li> <a href="#">Link3</a></li>
-				<li> <a href="#">Link4</a></li>
+				<li> <%= link_to "Venues", venues_path %></li>
+				<li> <%= link_to "Users", users_path %></li>
+				<li> <a href="http://ratings.food.gov.uk/" target = "_blank" >FSA</a></li>
 			</ul>
+</div>
+
+<div class="social_networking">
+		<div class="addthis_toolbox addthis_default_style ">
+		<a class="addthis_counter addthis_pill_style"></a>
+		</div>
+		<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+		<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50a2e7cb629c33a6"></script>
 </div>

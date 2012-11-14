@@ -18,7 +18,7 @@
 	var myOptions = {
 	  zoom: 15,
 	  center: latlng,
-	  mapTypeId: google.maps.MapTypeId.ROADMAP	
+	  mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	var map = new google.maps.Map(document.getElementById("map_canvas_sat"), myOptions);
 	var myMarker = new google.maps.Marker({
@@ -27,28 +27,33 @@
 	  title: "<%=@venue.name %>"
 	});
       });
-    
+
   }
 </script>
-  
+
 </head>
 <body onload="initialize()">
 <%= stylesheet_link_tag 'gmaps4rails' %>
 
 <div class="venue_show_all_content">
-	
+
 	<div>
 		<h1> <%= @venue.name %> </h1>
 	</div>
 
-	<div>
-	<%= image_tag @venue.photo.url(:medium) %>
+	<div class= "venue_photo">
+		<%= image_tag @venue.photo.url(:medium) %>
 	</div>
 
-	<div>
-		<% if admin_signed_in? %>
+	<div class="venue_map" >
+		<div id="map_canvas_sat" style="width:300px; height:300px;"></div>
+	</div>
+
+	<div class= "venue_photo_button">
+		<% if user_signed_in? || admin_signed_in? %>
 			<%= form_for(@venue) do |f| %>
 				<div class="field">
+				<%= f.label "Upload a photo of this venue" %><br />
 				<%= f.file_field :photo %>
 				</div>
 
@@ -59,8 +64,9 @@
 		<% end %>
 	</div>
 
-	<div>
-		<div>
+
+	<div class ="venue_details">
+		<div class ="venue_address">
 			<p>
 			  <b>Address:</b>
 			  <p><%= @venue.address1 %></p>
@@ -71,7 +77,7 @@
 			</p>
 		</div>
 
-		<div>
+		<div class="venue_rating">
 			<p>
 			  <b>Average Star rating:</b>
 			  <%= @avg%>
@@ -89,28 +95,23 @@
 		</div>
 	</div>
 
-	<div>
-		<h2>Location</h2>
-		<div id="map_canvas_sat" style="width:300px; height:300px;"></div>
-		<div id="testDiv"></div>
-	</div>
+	<div class="review_venue_headings">
+		<div class="venue_review_title">
+			<h2>Reviews</h2>
+		</div>
 
-	
-
-
-	<div>
-		<h2>Reviews</h2>
-	</div>
-
-	<div class="add_review_button_venue_show">
-		<% if user_signed_in? %>
-			<%= button_to 'Add a new Review', new_review_path(:venue_id => @venue.id, :user_id => current_user.id)%>
-		<% elsif admin_signed_in? %>
-
-		<% else %>
-			<p> Please sign in to add a review </p>
-			<p><%= link_to "Sign in", new_user_session_path %></p>
-		<% end %>
+		<div class="add_review_button_venue_show">
+			<% if user_signed_in? %>
+				<%= button_to 'Add a new Review', new_review_path(:venue_id => @venue.id, :user_id => current_user.id)%>
+			<% elsif admin_signed_in? %>
+			<div class="admin_text_venue_review">
+			 <a> Please sign out from the admin account and sign in again as a general user to add a review </a>
+			</div>
+			<% else %>
+				<p> Please sign in to add a review </p>
+				<p><%= link_to "Sign in", new_user_session_path %></p>
+			<% end %>
+		</div>
 	</div>
 
 	<div class= "venue_show_all_reviews">
@@ -120,6 +121,7 @@
 
 				<div class="venue_show_user_avatar_review">
 					<%= image_tag review.user.avatar.url(:thumb) %>
+					<%= review.user.name %>
 				</div>
 
 

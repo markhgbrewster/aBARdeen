@@ -42,6 +42,13 @@ div.content{position: relative;
  margin-bottom: 100px;
 }
 
+div.social_networking{ position: relative;
+	float:left;
+	left: 850px;
+	top: 10px;
+	padding: 0px;
+	}
+
 div.move_content{position: relative;
  float:left;
  margin-left:100px;
@@ -54,4 +61,3 @@ div#user_nav {
 div.notice{
     margin-left: 10px;
 }
-
