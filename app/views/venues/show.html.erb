@@ -1,5 +1,5 @@
 <head>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script type="text/javascript">
@@ -133,7 +133,7 @@
 					<div class = "speech_bubble_text">
 						<p class="review_summary_venue_show"> <%= review.review_summary %> </p>
 						<p> Star Rating: <%= review.star_rating %> </p>
-						<p class="review_heading_speech_bubble" > Review: </p>
+						<p class="review_heading_speech_bubble"> Review: </p>
 						<p>  <%= review.review_text %> </p>
 						<% if user_signed_in? || admin_signed_in? %>
 							<% if current_user == review.user || admin_signed_in? %>
