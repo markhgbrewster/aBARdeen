@@ -40,15 +40,15 @@
 	<div>
 		<h1> <%= @venue.name %> </h1>
 	</div>
-
-	<div class= "venue_photo">
-		<%= image_tag @venue.photo.url(:medium) %>
+	<div class="map_photo">
+	  <div class= "venue_photo">
+		  <%= image_tag @venue.photo.url(:medium) %>
+	  </div>
+  
+	  <div class="venue_map" >
+		  <div id="map_canvas_sat" style="width:300px; height:300px;"></div>
+	  </div>
 	</div>
-
-	<div class="venue_map" >
-		<div id="map_canvas_sat" style="width:300px; height:300px;"></div>
-	</div>
-
 	<div class= "venue_photo_button">
 		<% if user_signed_in? || admin_signed_in? %>
 			<%= form_for(@venue) do |f| %>
@@ -61,6 +61,10 @@
 				<%= f.submit %>
 				</div>
 			<% end %>
+			<%else%>
+			<div class="field">
+			  <p>Only signed in users can upload photos!</p>
+			</div>
 		<% end %>
 	</div>
 
@@ -108,8 +112,10 @@
 			 <a> Please sign out from the admin account and sign in again as a general user to add a review </a>
 			</div>
 			<% else %>
+			  <div class="admin_text_venue_review">
 				<p> Please sign in to add a review </p>
 				<p><%= link_to "Sign in", new_user_session_path %></p>
+			  </div>
 			<% end %>
 		</div>
 	</div>
