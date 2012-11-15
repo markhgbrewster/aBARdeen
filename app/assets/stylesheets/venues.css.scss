@@ -25,18 +25,15 @@ margin-top: 25px;
 }
 
 div.map_photo{
-	position: relative;
-	float: left;
 	margin-bottom: 20px;
 	width: 980px;
 }
 
-div.venue_map{ position: relative;
-	float: left;
-	margin-left: 50px;
-	margin-top: 45px;
-	top: -50px;
+div.venue_map{
+	margin-left: 400px;
 	border: 6px solid #333;
+	width:300px;
+	height: 300px;
 	}
 
 div.venue_details { position: relative;
