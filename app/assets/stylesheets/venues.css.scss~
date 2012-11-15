@@ -25,7 +25,12 @@ margin-top: 25px;
 
 }
 
-
+div.map_photo{
+	position: relative;
+	float: left;
+	margin-bottom: 20px;
+	width: 980px;
+}
 
 div.venue_map{ position: relative;
 	float: left;
@@ -59,7 +64,6 @@ right: 300px
 
 
 div.venue_review_title{ position: relative;
-
 top: 25px;
 }
 
@@ -67,8 +71,9 @@ div.admin_text_venue_review { position: relative;
 float:left;
 left: 300px;
 z-index: 4;
-bottom: 50px;
-width: 600px;
+bottom: 30px;
+width: 980px;
+margin-bottom: 25px;
 }
 
 div.add_review_button_venue_show{ position: relative;
@@ -84,6 +89,7 @@ div.venue_show_all_reviews{ position: relative;
 	width: 500px;
 	padding: 0px;
 	margin-bottom: 100px;
+	margin-top: 50px;
 	}
 
 
