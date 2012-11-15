@@ -15,22 +15,41 @@ Given /^that the user is logged in$/ do
   click_button("Sign up")
 end
 
-Then /^he should see Signed in as test$/ do
+And /^he sees Signed in as test$/ do
   page.should have_content('Signed in as test')
 end
 
-When /^he visits the venue number 1$/ do
+And /^he visits the venue number 1$/ do
   visit '/venues/1'
 end
 
 Then /^he should see the option of adding a new review$/ do
-  page.should have_content('Add a new Review')
+  page.should have_content('Reviews')
 end
 
 When /^he clicks to add a new review$/ do
   click_button("Add a new Review")
 end
 
-Then /^he should be on the add a new review page$/ do
-  page.should have_content('New review')
+And /^he lands on the add a new review page$/ do
+  page.should have_content('Review summary')
+end
+
+And /^he submits the review$/ do
+  fill_in "Review summary",    with: "A review"
+  fill_in "Review text",    with: "This is a review"
+  click_button("Submit Review")
+end
+
+Then /^the review should be created$/ do
+  page.should have_content('Review was successfully created.')
+  page.should have_content('This is a review')
+end
+
+When /^the user deletes a review$/ do
+  click_button("Delete")
+end
+
+Then /^the review should be deleted$/ do
+  page.should_not have_content('This is a review')
 end

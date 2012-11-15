@@ -20,14 +20,16 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
     @reviews = @venue.reviews
     @arr=[]
+    if @reviews.count !=0
     @reviews.each do |review|
+          if review.star_rating != nil
             @arr<< review.star_rating
+          end
         end
-            if @arr.count > 0
+          if @arr.count  != 0
               @avg= ((@arr.inject(:+))/@arr.count).round(1)
-            else
-              @avg="Not Available"
-            end
+          end
+    end
     @address=@venue.address1 + ' ' + @venue.address2+ ' ' +@venue.address3+ ' ' +@venue.address4+ ' ' +@venue.postcode
     #@json = Venue.find(params[:id]).to_gmaps4rails
 
