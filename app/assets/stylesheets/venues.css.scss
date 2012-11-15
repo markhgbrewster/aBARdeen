@@ -73,6 +73,7 @@ z-index: 4;
 bottom: 85px;
 width: 980px;
 margin-bottom: 25px;
+margin-left: 25px;
 }
 
 div.add_review_button_venue_show{ position: relative;
@@ -92,6 +93,11 @@ div.venue_show_all_reviews{ position: relative;
 
 	}
 
+div.review_layout{ position: relative;
+float: left;
+width: 980px;
+top: -120px;
+}
 
 div.review_last_updated_venue_show{ margin-top: -10px;
 	margin-left: 275px;
@@ -109,6 +115,7 @@ div.venue_show_user_avatar_review{ position: relative;
 	z-index: 2;
 	right: 125px;
 	top: 0px;
+	margin-top: 100px;
 	}
 
 .reviews_speech_bubble { position: relative;

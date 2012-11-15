@@ -16,7 +16,7 @@
 	//$("#testDiv").html("latitude:" + lat1 + "<p>longitude:" + lng1 + "</p>");
 	var latlng = new google.maps.LatLng(lat1,lng1);
 	var myOptions = {
-	  zoom: 15,
+	  zoom: 18,
 	  center: latlng,
 	  mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
@@ -33,7 +33,7 @@
 
 </head>
 <body onload="initialize()">
-
+<%= stylesheet_link_tag 'gmaps4rails' %>
 <div class="venue_show_all_content">
 
 	<div>
@@ -112,8 +112,7 @@
 			</div>
 			<% else %>
 			  <div class="admin_text_venue_review">
-				<p> Please sign in to add a review </p>
-				<p><%= link_to "Sign in", new_user_session_path %></p>
+				<p> Please sign in to add a review <%= link_to "Sign in", new_user_session_path %></p>
 			  </div>
 			<% end %>
 		</div>
