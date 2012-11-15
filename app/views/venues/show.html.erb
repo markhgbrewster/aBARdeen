@@ -43,7 +43,7 @@
 	  <div class= "venue_photo">
 		  <%= image_tag @venue.photo.url(:medium) %>
 	  </div>
-  
+
 	  <div class="venue_map" >
 		  <div id="map_canvas_sat" style="width:300px; height:300px;"></div>
 	  </div>
@@ -118,6 +118,9 @@
 			<% end %>
 		</div>
 	</div>
+
+	<div class ="div.venue_spacer">
+	<div>
 
 	<div class= "venue_show_all_reviews">
 		<% @reviews.each do |review| %>
