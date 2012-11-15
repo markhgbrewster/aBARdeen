@@ -20,13 +20,14 @@
 	  center: latlng,
 	  mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
+	});
 	var map = new google.maps.Map(document.getElementById("map_canvas_sat"), myOptions);
 	var myMarker = new google.maps.Marker({
 	  position: latlng,
 	  map: map,
 	  title: "<%=@venue.name %>"
 	});
-      });
+      
 
   }
 </script>
