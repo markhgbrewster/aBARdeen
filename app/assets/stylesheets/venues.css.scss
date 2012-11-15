@@ -57,7 +57,6 @@ div.venue_rating{ position: relative;
 
 
 div.review_venue_headings{ position: relative;
-
 top: 125px;
 right: 300px
 }
@@ -67,17 +66,12 @@ div.venue_review_title{ position: relative;
 top: 25px;
 }
 
-div.venue_spacer{ position: relative;
-width:980px;
-height: 10px;
-margin: 15px;
-}
 
 div.admin_text_venue_review { position: relative;
 float:left;
-left: 300px;
+left: 350px;
 z-index: 4;
-bottom: 30px;
+bottom: 85px;
 width: 980px;
 margin-bottom: 25px;
 }

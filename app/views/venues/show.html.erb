@@ -112,15 +112,11 @@
 			</div>
 			<% else %>
 			  <div class="admin_text_venue_review">
-				<p> Please sign in to add a review </p>
-				<p><%= link_to "Sign in", new_user_session_path %></p>
+				<p> Please sign in to add a review <%= link_to "Sign in", new_user_session_path %></p>
 			  </div>
 			<% end %>
 		</div>
 	</div>
-
-	<div class ="div.venue_spacer">
-	<div>
 
 	<div class= "venue_show_all_reviews">
 		<% @reviews.each do |review| %>
