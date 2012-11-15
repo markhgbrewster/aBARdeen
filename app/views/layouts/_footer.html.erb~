@@ -2,10 +2,16 @@
 		<div>
 		<ul id="footer">
 			<li id="footer"><%= link_to "Home |", root_path %></li>
-			<li id="footer">Link2 |</li>
-			<li id="footer">Link3 |</li>
-			<li id="footer">Link4</li>
+			<li id="footer"><%= link_to "Venues |", venues_path %></li>
+			<li id="footer"><%= link_to "Users |", users_path %></li>
+			<li id="footer"><a href="http://ratings.food.gov.uk/" target = "_blank" >FSA</a></li>
 		</ul>
 		</div>
-
+	<%= yield :scripts %>
 </div>
+
+<audio  controls= "controls" autoplay="autoplay" >
+  <source src="/audio/bagpipes.wav" type="audio/wav">
+  <source src="/audio/bagpipes.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
